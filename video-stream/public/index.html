@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Video Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WebRTC Video Streaming Platform</h1>
+        </header>
+
+        <!-- Join Room Section -->
+        <div id="join-section" class="section">
+            <div class="room-controls">
+                <input type="text" id="room-id" placeholder="Enter Room ID (e.g., room123)" maxlength="20">
+                <button id="join-btn">Join Room</button>
+                <button id="create-btn">Create New Room</button>
+            </div>
+            <div id="status" class="status"></div>
+        </div>
+
+        <!-- Video Section -->
+        <div id="video-section" class="section hidden">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video id="local-video" autoplay muted playsinline></video>
+                    <div class="video-label">You (Local)</div>
+                </div>
+                <div id="remote-videos"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="toggle-video" class="control-btn">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button id="toggle-audio" class="control-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="leave-btn" class="leave-button">
+                    <i class="fas fa-sign-out-alt"></i> Leave Room
+                </button>
+            </div>
+            
+            <div id="room-info" class="room-info"></div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
